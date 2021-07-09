@@ -1,0 +1,29 @@
+<header class="d-flex flex-wrap justify-content-center py-3 mb-1 border-bottom fixed-header">
+  <div class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none">
+    <div style="margin-left: 10px;" *ngIf="isEnableSearch()">
+      <h3>Products</h3>
+    </div>
+    <form class="form-inline my-lg-0 header-pos" *ngIf="isEnableSearch()">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search grocery products..." aria-label="Search"
+        [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" (keyup)="setTimer($event.target.value)">
+    </form>
+    <div class="spinner-border text-success" role="status" style="margin-left: 10px;" *ngIf="isLoading">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div *ngIf="!isEnableSearch()" style="margin-left: 10px;">
+      <h3>Cart Items</h3>
+    </div>
+  </div>
+
+  <ul class="nav nav-pills">
+    <li class="nav-item mr-2">
+      <a class="btn btn-primary" (click)="navigate('home')">
+        <i class="fa fa-home"></i>
+        Home
+      </a>&nbsp;
+      <a class="btn btn-primary" (click)="navigate('cart')">
+        <i class="fa fa-shopping-cart"></i>
+        Cart
+      </a>&nbsp;&nbsp;</li>
+  </ul>
+</header>

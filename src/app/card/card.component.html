@@ -1,0 +1,14 @@
+<div class="card h-100" style="width: 18rem;">
+  <img class="card-img-top" [src]="getImage()" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{data.name}}</h5>
+    <h5 class="card-title text-muted">{{data.price | currency : 'INR'}}</h5>
+    <p class="card-text" style="font-size: 14px;">{{data.description}}</p>
+  </div>
+  <div class="card-footer" *ngIf="!type">
+    <button type="button" class="btn btn-primary" (click)="addCart()">Add to cart</button>
+  </div>
+  <div class="card-footer" *ngIf="type">
+    <button type="button" class="btn btn-danger" (click)="removeCartItem()">Remove from cart</button>
+  </div>
+</div>
